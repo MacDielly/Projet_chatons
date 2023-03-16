@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'cart/show'
+  get 'cart', to: 'cart#show'
+  post "cart/add"
+  post "cart/remove"
   resources :items
   devise_for :users
   resources :users
@@ -8,6 +12,7 @@ Rails.application.routes.draw do
     get 'success', to: 'checkout#success', as: 'checkout_success'
     get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
   end
+  root "items#index"
   # Defines the root path route ("/")
   # root "articles#index"
 end
