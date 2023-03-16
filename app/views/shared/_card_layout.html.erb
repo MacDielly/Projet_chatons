@@ -12,9 +12,8 @@
     </ul>
     <div class="card-body d-flex justify-content-center">
       <%= link_to "Show this item", item_path(item), class: "btn btn-primary d-flex justify-content-center" %>
-      <%= form_with(url: cart_add_path) do |f| %>
+      <%= form_with(url: cart_add_path, data: {turbo: false}) do |f| %>
         <%= f.hidden_field :id, value: item.id %>
-        <%= f.number_field :quantity, value: 0, min: 1 %>
         <%= f.submit "Add to Cart" %>
       <% end %>
     </div>

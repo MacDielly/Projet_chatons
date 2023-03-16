@@ -16,7 +16,6 @@
         <%= link_to "Show this item", item_path(item), class: "btn btn-primary d-flex justify-content-center" %>
         <%= form_with(url: cart_add_path) do |f| %>
           <%= f.hidden_field :id, value: item.id %>
-          <%= f.number_field :quantity, value: order.quantity, min: 0 %>
           <%= f.submit "Add to Cart" %>
         <% end %>
         <%= form_with(url: cart_remove_path) do |f| %>
