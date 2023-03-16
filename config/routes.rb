@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  get 'cart/show'
   resources :items
   devise_for :users
   resources :users
+  resources :cart, only: [:show]
+  post 'cart/add'
+  post 'cart/remove'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'
